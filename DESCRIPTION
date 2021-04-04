@@ -1,0 +1,22 @@
+Package: rnytapi
+Title: R interface for the New York Times API
+Version: 0.0.0.9000
+Authors@R: 
+     person(given = "Jae Yeon",
+            family = "Kim",
+            role = c("aut", "cre"),
+            email = "jaeyeonkim@berkeley.edu",
+            comment = c(ORCID = "0000-0002-6533-7910"))
+Description: A fast and easy tool to access and collect data using the New York Times API.
+License: MIT + file LICENSE
+BugReports: https://github.com/jaeyk/rnytapi/issues
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    glue,
+    httr,
+    jsonlite,
+    magrittr,
+    purrr
