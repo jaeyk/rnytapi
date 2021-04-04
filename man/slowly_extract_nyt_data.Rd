@@ -7,7 +7,7 @@
 slowly_extract_nyt_data(rate_limit = 6)
 }
 \arguments{
-\item{rate_limit}{The rate limit. The default limit is 7 seconds.}
+\item{rate_limit}{The rate limit. The default limit is 6 seconds.}
 }
 \description{
 Make the extracting function work slowly

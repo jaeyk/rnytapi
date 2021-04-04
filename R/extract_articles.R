@@ -65,7 +65,7 @@ extract_nyt_data <- function(term, begin_date, end_date, key){
 
 #' Make the extracting function work slowly
 #'
-#' @param rate_limit The rate limit. The default limit is 7 seconds.
+#' @param rate_limit The rate limit. The default limit is 6 seconds.
 #' @importFrom purrr slowly
 #' @importFrom purrr rate_delay
 #' @export
