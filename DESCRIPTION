@@ -1,6 +1,6 @@
 Package: rnytapi
 Title: R interface for the New York Times API
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
      person(given = "Jae Yeon",
             family = "Kim",
