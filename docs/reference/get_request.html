@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rnytapi</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
     <p>Form a request URL</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_request</span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>begin_date</span>, <span class='va'>end_date</span>, <span class='va'>key</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_request</span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>begin_date</span>, <span class='va'>end_date</span>, <span class='va'>key</span>, page <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,6 +140,10 @@
     <tr>
       <th>key</th>
       <td><p>New York Times API key</p></td>
+    </tr>
+    <tr>
+      <th>page</th>
+      <td><p>page number. The default value is 1.</p></td>
     </tr>
     </table>
 

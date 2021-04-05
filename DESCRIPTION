@@ -1,6 +1,6 @@
 Package: rnytapi
 Title: R interface for the New York Times API
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
      person(given = "Jae Yeon",
             family = "Kim",
@@ -20,3 +20,6 @@ Imports:
     jsonlite,
     magrittr,
     purrr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

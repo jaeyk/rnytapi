@@ -4,7 +4,7 @@
 \alias{get_content}
 \title{Get response content}
 \usage{
-get_content(term, begin_date, end_date, key)
+get_content(term, begin_date, end_date, key, page = 1)
 }
 \arguments{
 \item{term}{search term}
@@ -14,6 +14,8 @@ get_content(term, begin_date, end_date, key)
 \item{end_date}{end date}
 
 \item{key}{New York Times API key}
+
+\item{page}{page number. The default value is 1.}
 }
 \value{
 a dataframe output

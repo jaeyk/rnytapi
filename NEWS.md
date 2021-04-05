@@ -1,3 +1,7 @@
+# rnytapi 0.0.2 
+
+* Fixed a major bug 
+
 # rnytapi 0.0.1 
 
 * Built a site for the package 
