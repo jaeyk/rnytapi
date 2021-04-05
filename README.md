@@ -21,9 +21,24 @@ devtools::install_github("jaeyk/rnytapi", dependencies = TRUE)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The package's current main use case is to collect the NYT articles on a particular subject published during a specific period.
 
-``` r
+A single page output from the search. The default page is the first page. You can overwrite it by passing a new value for the `page` argument.
+
+```r
 library(rnytapi)
-## basic example code
+
+df <- get_content(term = "muslim+muslims",
+            begin_date = "19960911",
+            end_date = "20060911",
+            key = "<insert your key>")
+``` 
+
+All results from the search. The function sleeps 6 seconds between calls to respect [the NYT API call limit](https://developer.nytimes.com/faq). Depending on the scope of the search, getting the results will take a substantial amount of time. 
+
+```r
+df <- extract_all(term = "muslim+muslims",
+            begin_date = "19960911",
+            end_date = "20060911",
+            key = "<insert your key>")
 ```
