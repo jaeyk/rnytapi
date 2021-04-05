@@ -90,10 +90,21 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>The package’s current main use case is to collect the NYT articles on a particular subject published during a specific period.</p>
+<p>A single page output from the search. The default page is the first page. You can overwrite it by passing a new value for the <code>page</code> argument.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">rnytapi</span><span class="op">)</span>
-<span class="co">## basic example code</span></code></pre></div>
+
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_content.html">get_content</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"muslim+muslims"</span>,
+            begin_date <span class="op">=</span> <span class="st">"19960911"</span>,
+            end_date <span class="op">=</span> <span class="st">"20060911"</span>,
+            key <span class="op">=</span> <span class="st">"&lt;insert your key&gt;"</span><span class="op">)</span></code></pre></div>
+<p>All results from the search. The function sleeps 6 seconds between calls to respect <a href="https://developer.nytimes.com/faq">the NYT API call limit</a>. Depending on the scope of the search, getting the results will take a substantial amount of time.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_all.html">extract_all</a></span><span class="op">(</span>term <span class="op">=</span> <span class="st">"muslim+muslims"</span>,
+            begin_date <span class="op">=</span> <span class="st">"19960911"</span>,
+            end_date <span class="op">=</span> <span class="st">"20060911"</span>,
+            key <span class="op">=</span> <span class="st">"&lt;insert your key&gt;"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
   </div>
