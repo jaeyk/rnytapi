@@ -34,10 +34,13 @@ get_request <- function(term, begin_date, end_date, key, page = 1) {
 #' @return a dataframe output
 #' @importFrom httr content
 #' @importFrom jsonlite fromJSON
+#' @importFrom glue glue
 #' @export
 #'
 
 get_content <- function(term, begin_date, end_date, key, page = 1) {
+
+    message(glue("Scraping page {page}"))
 
     fromJSON(content(get_request(term, begin_date, end_date, key, page),
                      "text",
@@ -45,35 +48,6 @@ get_content <- function(term, begin_date, end_date, key, page = 1) {
                 simplifyDataFrame = TRUE, flatten = TRUE) %>% as.data.frame()
 
 }
-
-#' Make the extracting function work slowly
-#'
-#' @param term search term
-#' @param begin_date beginning date
-#' @param end_date end date
-#' @param key New York Times API key
-#' @param page page number. The default value is 1.
-#' @param rate_limit The rate limit. The default limit is 6 seconds.
-#' @importFrom purrr slowly
-#' @importFrom purrr rate_delay
-#' @importFrom glue glue
-#' @export
-#'
-
-slowly_extract <- function(term, begin_date, end_date, key, page = 1) {
-
-    slowly_get_content <- slowly(get_content,
-                                 # 6 seconds sleep is the default requirement.
-                                 rate = rate_delay(
-        pause = 6,
-        max_times = 4000)
-    )
-
-    message(glue("Scraping page {page}"))
-
-    slowly_get_content(term, begin_date, end_date, key, page)
-
-    }
 
 #' Extract responses from all pages
 #'
@@ -85,6 +59,7 @@ slowly_extract <- function(term, begin_date, end_date, key, page = 1) {
 #' @return a dataframe output
 #' @importFrom purrr slowly
 #' @importFrom purrr pmap_dfr
+#' @importFrom purrr rate_delay
 #' @importFrom glue glue
 #' @export
 #'
@@ -110,7 +85,11 @@ extract_all <- function(term, begin_date, end_date, key) {
                      iter
                      )
 
-    out <- pmap_dfr(arg_list, slowly_extract)
+    out <- pmap_dfr(arg_list, slowly(get_content,
+                                     # 6 seconds sleep is the default requirement.
+                                     rate = rate_delay(
+                                         pause = 6,
+                                         max_times = 4000)))
 
     return(out)
 
