@@ -76,10 +76,6 @@ extract_all <- function(term, begin_date, end_date, key) {
 
     message(glue("The total number of pages is {max_pages}"))
 
-    if (max_pages > 200) {
-        warning("As of now, the maximum amount of pages the NYT API will return is 200. Consider scraping a smaller amount at a time by changing the date range.")
-    }
-
     iter <- 0:max_pages
 
     arg_list <- list(rep(term, times = length(iter)),
