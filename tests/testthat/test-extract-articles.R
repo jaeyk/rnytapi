@@ -11,7 +11,7 @@ get_content(term = "muslim+muslims",
             end_date = "20060911",
             key = "<insert your key>")
 
-test <- slowly_extract(term = "muslim+muslims",
+slowly_extract(term = "muslim+muslims",
                begin_date = "19960911",
                end_date = "20060911",
                key = "<insert your key>")
