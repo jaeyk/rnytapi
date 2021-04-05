@@ -37,6 +37,8 @@ df <- get_content(term = "muslim+muslims",
 All results from the search. The function sleeps 6 seconds between calls to respect [the NYT API call limit](https://developer.nytimes.com/faq). Depending on the scope of the search, getting the results will take a substantial amount of time. 
 
 ```r
+library(rnytapi)
+
 df <- extract_all(term = "muslim+muslims",
             begin_date = "19960911",
             end_date = "20060911",
